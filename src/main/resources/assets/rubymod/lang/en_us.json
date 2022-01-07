@@ -4,6 +4,8 @@
   "block.rubymod.ruby_block": "Ruby Block",
   "block.rubymod.ruby_ore": "Ruby Ore",
 
-  "itemGroup.rubymod.rubymodtab": "Ruby"
+  "itemGroup.rubymod.rubymodtab": "Ruby",
+
+  "entity.minecraft.villager.rubymod.jeweler": "Jeweler"
 
 }

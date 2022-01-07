@@ -1,5 +1,6 @@
 package net.funkybumbleton.rubymod;
 
+import net.funkybumbleton.init.VillagerInit;
 import net.funkybumbleton.rubymod.block.ModBlocks;
 import net.funkybumbleton.rubymod.item.ModItems;
 import net.minecraft.world.level.block.Block;
@@ -35,6 +36,8 @@ public class RubyMod
 
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
+        VillagerInit.VILLAGER_PROFESSIONS.register(eventBus);
+        VillagerInit.POI_TYPES.register(eventBus);
 
         eventBus.addListener(this::setup);
 
@@ -48,5 +51,4 @@ public class RubyMod
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
-
 }
