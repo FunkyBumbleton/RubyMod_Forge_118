@@ -42,7 +42,8 @@ public class VillagerInit
                     ImmutableSet.of(),
                     SoundEvents.VILLAGER_WORK_MASON));
 
-    public static void registerJewelerPOI() {
+    public static void registerJewelerPOI()
+    {
         try
         {
             ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, JEWELER_POI.get());

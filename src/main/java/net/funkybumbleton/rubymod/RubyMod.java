@@ -1,5 +1,6 @@
 package net.funkybumbleton.rubymod;
 
+import net.funkybumbleton.event.CommonEvents;
 import net.funkybumbleton.init.VillagerInit;
 import net.funkybumbleton.rubymod.block.ModBlocks;
 import net.funkybumbleton.rubymod.item.ModItems;
@@ -30,6 +31,7 @@ public class RubyMod
         VillagerInit.VILLAGER_PROFESSIONS.register(eventBus);
         VillagerInit.POI_TYPES.register(eventBus);
 
+        FMLJavaModLoadingContext.get().getModEventBus().register(CommonEvents.class);
         eventBus.addListener(this::setup);
 
         // Register ourselves for server and other game events we are interested in
