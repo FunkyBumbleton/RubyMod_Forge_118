@@ -11,12 +11,9 @@ import net.funkybumbleton.rubymod.item.ModItems;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.MinecartItem;
 import net.minecraftforge.common.BasicItemListing;
-import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -43,7 +40,7 @@ public class VillagerInit
                     JEWELER_POI.get(),
                     ImmutableSet.of(),
                     ImmutableSet.of(),
-                    SoundEvents.VILLAGER_WORK_MASON));//
+                    SoundEvents.VILLAGER_WORK_MASON));
 
     public static void registerJewelerPOI() {
         try

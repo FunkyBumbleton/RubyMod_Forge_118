@@ -1,6 +1,5 @@
 package net.funkybumbleton.rubymod.item;
 
-import net.funkybumbleton.rubymod.RubyMod;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
