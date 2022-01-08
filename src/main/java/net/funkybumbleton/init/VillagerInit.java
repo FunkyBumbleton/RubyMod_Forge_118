@@ -43,7 +43,7 @@ public class VillagerInit
                     JEWELER_POI.get(),
                     ImmutableSet.of(),
                     ImmutableSet.of(),
-                    SoundEvents.VILLAGER_WORK_MASON));
+                    SoundEvents.VILLAGER_WORK_MASON));//
 
     public static void registerJewelerPOI() {
         try
