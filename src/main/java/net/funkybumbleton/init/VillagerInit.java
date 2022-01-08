@@ -1,11 +1,19 @@
 package net.funkybumbleton.init;
 
+import com.google.common.collect.ImmutableMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import net.minecraft.world.entity.npc.VillagerTrades;
 import com.google.common.collect.ImmutableSet;
 import net.funkybumbleton.rubymod.RubyMod;
 import net.funkybumbleton.rubymod.block.ModBlocks;
+import net.funkybumbleton.rubymod.item.ModItems;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraftforge.common.BasicItemListing;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -13,8 +21,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.lang.reflect.InvocationTargetException;
 
-public class VillagerInit
-{
+
+public class VillagerInit {
     public static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(ForgeRegistries.POI_TYPES, RubyMod.MOD_ID);
     public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSIONS = DeferredRegister.create(ForgeRegistries.PROFESSIONS, RubyMod.MOD_ID);
 
@@ -29,16 +37,16 @@ public class VillagerInit
                     JEWELER_POI.get(),
                     ImmutableSet.of(),
                     ImmutableSet.of(),
-                    SoundEvents.VILLAGER_WORK_FLETCHER));
+                    SoundEvents.VILLAGER_WORK_MASON));
 
-    public static void registerJewelerPOI()
-    {
+
+    public static void registerJewelerPOI() {
         try
         {
             ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, JEWELER_POI.get());
-        } catch (InvocationTargetException | IllegalAccessException e) {
+        } catch (InvocationTargetException | IllegalAccessException e)
+        {
             e.printStackTrace();
         }
     }
-
 }
