@@ -11,9 +11,12 @@ import net.funkybumbleton.rubymod.item.ModItems;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.MinecartItem;
 import net.minecraftforge.common.BasicItemListing;
+import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -22,9 +25,12 @@ import net.minecraftforge.registries.RegistryObject;
 import java.lang.reflect.InvocationTargetException;
 
 
-public class VillagerInit {
+public class VillagerInit
+{
     public static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(ForgeRegistries.POI_TYPES, RubyMod.MOD_ID);
     public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSIONS = DeferredRegister.create(ForgeRegistries.PROFESSIONS, RubyMod.MOD_ID);
+
+    //    public VillagerTradesEvent(Int2ObjectMap<List<ItemListing>> trades, VillagerProfession type)
 
     public static final RegistryObject<PoiType> JEWELER_POI = POI_TYPES.register("jeweler",
             () -> new PoiType("jeweler",
@@ -39,7 +45,6 @@ public class VillagerInit {
                     ImmutableSet.of(),
                     SoundEvents.VILLAGER_WORK_MASON));
 
-
     public static void registerJewelerPOI() {
         try
         {
@@ -48,5 +53,17 @@ public class VillagerInit {
         {
             e.printStackTrace();
         }
+    }
+
+    public static void fillTradeData()
+    {
+        BasicItemListing jewelerTrade1 = new BasicItemListing(new ItemStack(ModItems.RUBY.get(), 1), new ItemStack(Items.BLAZE_ROD, 1), 100, 1, 2f);
+
+        VillagerTrades.ItemListing[] jewelerLevel1 = new VillagerTrades.ItemListing[]{jewelerTrade1};
+        VillagerTrades.TRADES.put(JEWELER.get(), toIntMap(ImmutableMap.of(1, jewelerLevel1)));
+    }
+
+    private static Int2ObjectMap<VillagerTrades.ItemListing[]> toIntMap(ImmutableMap<Integer, VillagerTrades.ItemListing[]> pMap) {
+        return new Int2ObjectOpenHashMap<>(pMap);
     }
 }
