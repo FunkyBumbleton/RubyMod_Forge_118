@@ -1,4 +1,4 @@
-package net.funkybumbleton.init;
+package net.funkybumbleton.rubymod.init;
 
 import com.google.common.collect.ImmutableMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;

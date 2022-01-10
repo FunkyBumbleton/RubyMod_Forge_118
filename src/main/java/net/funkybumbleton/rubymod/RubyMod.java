@@ -1,9 +1,11 @@
 package net.funkybumbleton.rubymod;
 
 import net.funkybumbleton.event.CommonEvents;
-import net.funkybumbleton.init.VillagerInit;
+import net.funkybumbleton.rubymod.init.VillagerInit;
 import net.funkybumbleton.rubymod.block.ModBlocks;
 import net.funkybumbleton.rubymod.item.ModItems;
+import net.funkybumbleton.rubymod.world.ModWorldEvents;
+import net.funkybumbleton.rubymod.world.feature.ModPlacedFeatures;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -32,6 +34,8 @@ public class RubyMod
         VillagerInit.POI_TYPES.register(eventBus);
 
         FMLJavaModLoadingContext.get().getModEventBus().register(CommonEvents.class);
+        MinecraftForge.EVENT_BUS.register(ModWorldEvents.class);
+
         eventBus.addListener(this::setup);
 
         // Register ourselves for server and other game events we are interested in
